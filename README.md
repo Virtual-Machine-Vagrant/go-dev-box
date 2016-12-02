@@ -1,5 +1,5 @@
-# node-dev-box
-A Vagrant powered virtual machine for NodeJS application development.
+# go-dev-box
+A Vagrant powered virtual machine for Go application development.
 
 ## Requirements
 
@@ -11,8 +11,8 @@ A Vagrant powered virtual machine for NodeJS application development.
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/skanukov/node-dev-box
-    host $ cd node-dev-box
+    host $ git clone https://github.com/skanukov/go-dev-box
+    host $ cd go-dev-box
     host $ vagrant up
 
 That's it.
@@ -34,6 +34,8 @@ Don't forget to look at some helper shell scripts for newbies.
 * Git
 
 * NodeJS v6.9 with Npm 3.10
+
+* Go v1.7.4
 
 ## License
 

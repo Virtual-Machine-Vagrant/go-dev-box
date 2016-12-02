@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap file for setting NodeJS development environment.
+# Bootstrap file for setting Go development environment.
 
 node_version='6.x'
 postgresql_version='9.6'
