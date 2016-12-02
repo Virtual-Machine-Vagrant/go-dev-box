@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Bootstrap file for setting Go development environment.
 
+go_version='1.7.4'
 node_version='6.x'
 postgresql_version='9.6'
 
@@ -95,9 +96,33 @@ function install_node_and_npm {
 }
 # End of NodeJS
 
+# Go
+function install_go {
+  echo 'Installing Go...'
+  wget https://storage.googleapis.com/golang/go"$go_version".linux-amd64.tar.gz
+  sudo tar -xvf go"$go_version".linux-amd64.tar.gz
+  sudo mv go /usr/local
+}
+
+function set_go_env_vars {
+  echo 'Setting Go environment variables...'
+  append_to_file 'export GOROOT=/usr/local/go' ~/.profile
+  append_to_file 'export GOPATH=/vagrant/code' ~/.profile
+  append_to_file 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' ~/.profile
+  source ~/.profile
+}
+
+function install_go_and_set_env_vars {
+  install_go
+  set_go_env_vars
+}
+#End of Go
+
 
 install_dependencies
-install_postgresql_and_allow_external_connections
+install_go_and_set_env_vars
 install_node_and_npm
+install_postgresql_and_allow_external_connections
+
 
 echo 'All set, rock on!'
