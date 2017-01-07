@@ -2,8 +2,8 @@
 # Bootstrap file for setting Go development environment.
 
 go_version='1.7.4'
-node_version='6.x'
 postgresql_version='9.6'
+node_version='6.x'
 
 # Heper functions
 function append_to_file {
@@ -20,20 +20,20 @@ function install {
   sudo apt-get -y install "$@"
 }
 
-function add_repository {
-  sudo add-apt-repository "$1"
-}
-
 function update_packages {
   echo 'Updating package information...'
   sudo apt-get -y update
+}
+
+function add_repository {
+  sudo add-apt-repository "$1"
+  update_packages
 }
 # End of Heper functions
 
 # Dependencies
 function install_git {
   add_repository ppa:git-core/ppa
-  update_packages
   install 'Git' git
 }
 
@@ -76,26 +76,6 @@ function install_postgresql_and_allow_external_connections {
 }
 # End of PostgreSQL
 
-# NodeJS
-function install_node {
-  curl -sL https://deb.nodesource.com/setup_"$node_version" | sudo -E bash -
-  install 'NodeJS' nodejs
-}
-
-function set_npm_permissions {
-  echo 'Setting correct Npm permissions...'
-  mkdir ~/.npm-global
-  npm config set prefix '~/.npm-global'
-  append_to_file 'export PATH=~/.npm-global/bin:$PATH' ~/.profile
-  source ~/.profile
-}
-
-function install_node_and_npm {
-  install_node
-  set_npm_permissions
-}
-# End of NodeJS
-
 # Go
 function install_go {
   echo 'Installing Go...'
@@ -118,11 +98,33 @@ function install_go_and_set_env_vars {
 }
 #End of Go
 
+# NodeJS
+function install_node {
+  curl -sL https://deb.nodesource.com/setup_"$node_version" | sudo -E bash -
+  update_packages
+  install 'NodeJS' nodejs
+}
 
+function set_npm_permissions {
+  echo 'Setting correct Npm permissions...'
+  mkdir ~/.npm-global
+  npm config set prefix '~/.npm-global'
+  append_to_file 'export PATH=~/.npm-global/bin:$PATH' ~/.profile
+  source ~/.profile
+}
+
+function install_node_and_npm {
+  install_node
+  set_npm_permissions
+}
+# End of NodeJS
+
+
+update_packages
 install_dependencies
+install_postgresql_and_allow_external_connections
 install_go_and_set_env_vars
 install_node_and_npm
-install_postgresql_and_allow_external_connections
 
 
 echo 'All set, rock on!'

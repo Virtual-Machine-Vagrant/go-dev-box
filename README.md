@@ -31,11 +31,11 @@ Don't forget to look at some helper shell scripts for newbies.
 
 * PostgreSQL 9.6
 
-* Git
+* Go 1.7.4
 
-* NodeJS v6.9 with Npm 3.10
+* NodeJS 6.9 LTS with Npm 3.10
 
-* Go v1.7.4
+* Latest stable Git
 
 ## License
 
