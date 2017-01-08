@@ -33,9 +33,9 @@ Don't forget to look at some helper shell scripts for newbies.
 
 * Go 1.7.4
 
-* NodeJS 6.9 LTS with Npm 3.10
+* NodeJS 6.9 LTS with Npm 3.10 and the latest stable Yarn
 
-* Latest stable Git
+* The latest stable Git
 
 ## License
 

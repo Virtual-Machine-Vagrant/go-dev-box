@@ -113,9 +113,14 @@ function set_npm_permissions {
   source ~/.profile
 }
 
-function install_node_and_npm {
+function install_yarn {
+  npm install --global yarn
+}
+
+function install_node_and_yarn {
   install_node
   set_npm_permissions
+  install_yarn
 }
 # End of NodeJS
 
@@ -124,7 +129,7 @@ update_packages
 install_dependencies
 install_postgresql_and_allow_external_connections
 install_go_and_set_env_vars
-install_node_and_npm
+install_node_and_yarn
 
 
 echo 'All set, rock on!'
