@@ -20,9 +20,10 @@ Vagrant.configure(2) do |config|
   # Forward ports.
   config.vm.network 'forwarded_port', guest: 5432, host: 5432 # Postgres port.
 
-  # Customize the amount of memory on the VM.
-  config.vm.provider 'virtualbox' do |vb|
-    vb.memory = 1024
+  # Customize the VM.
+  config.vm.provider 'virtualbox' do |v|
+    v.cpus = 1 # Use one processor.
+    v.memory = 1024 # Use 1GB of RAM.
   end
 
   # Install required software.
