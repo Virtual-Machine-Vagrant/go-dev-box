@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Run psql
+# Run psql.
 
-# Use database to connect to if provided
+# Use database to connect to if provided.
 db=''
 if [ -n "$1" ]; then
   db="-d $1"

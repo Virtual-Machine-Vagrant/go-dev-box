@@ -57,7 +57,7 @@ function install_postgresql {
 }
 
 function create_postgresql_superuser {
-  sudo -u postgres createuser -s ubuntu
+  sudo -u postgres createuser -s vagrant
 }
 
 function allow_external_connections {

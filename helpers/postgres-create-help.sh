@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Print commands to create PostgreSQL db, user and grant privileges
+# Print commands to create PostgreSQL db, user and grant privileges.
 
 echo 'Create PostgreSQL database:'
 echo 'postgres=# CREATE DATABASE myproject;'

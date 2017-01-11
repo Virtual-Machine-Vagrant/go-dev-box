@@ -37,7 +37,7 @@ Don't forget to look at some helper shell scripts for newbies.
 
 * The latest stable Git
 
-## Note about symlinks
+## Note About Symlinks
 
 To allow guest system to create symlinks, `vagrant up` command should be run as administrator.
 

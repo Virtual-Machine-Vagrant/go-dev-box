@@ -10,12 +10,9 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  # Disable automatic box update checking.
-  config.vm.box_check_update = false
-
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = 'ubuntu/xenial64'
+  config.vm.box = 'bento/ubuntu-16.04'
 
   # Forward ports.
   config.vm.network 'forwarded_port', guest: 5432, host: 5432 # Postgres port.
