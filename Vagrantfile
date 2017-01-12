@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
   # Customize the VM.
   config.vm.provider 'virtualbox' do |v|
     v.cpus = 1 # Use one processor.
-    v.memory = 1024 # Use 1GB of RAM.
+    v.memory = 512 # Use 512MB of RAM.
   end
 
   # Install required software.
